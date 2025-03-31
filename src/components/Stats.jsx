@@ -3,7 +3,7 @@ import {useContext} from "react";
 import {TwitterContext} from "../utils/context.js";
 
 const Stats = () => {
-    const {user, stats, changeFollowers, changeFollowing} = useContext(TwitterContext);
+    const {user, stats, changeStats} = useContext(TwitterContext);
 
     return (
         <div className={`user-stats`}>
@@ -13,17 +13,17 @@ const Stats = () => {
             </div>
             <div className={`stats`}>
                 <div
-                    onClick={() => changeFollowers(1)}
+                    onClick={() => changeStats('followers', 1)}
                     onContextMenu={e => {
                         e.preventDefault();
-                        changeFollowers(-1);
+                        changeStats('followers', -1);
                     }}
                 >Followers: {stats.followers}</div>
                 <div
-                    onClick={() => changeFollowing(1)}
+                    onClick={() => changeStats('following', 1)}
                     onContextMenu={e => {
                         e.preventDefault();
-                        changeFollowing(-1);
+                        changeStats('following', -1);
                     }}
                 >Following: {stats.following}</div>
             </div>
